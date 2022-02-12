@@ -17,6 +17,9 @@ class ImportRegions extends Seeder
         $path = public_path('tbl_regions.sql');
         
         $mysqlBin = 'C:\xampp\mysql\bin';
+        if (!(strtoupper(substr(PHP_OS, 0, 3)) === 'WIN')) {
+            $mysqlBin = '';
+        }
         $db = [
             'username' => env('DB_USERNAME'),
             'password' => env('DB_PASSWORD'),
